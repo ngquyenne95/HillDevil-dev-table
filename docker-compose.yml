@@ -1,0 +1,19 @@
+services:
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_URL=${DB_URL}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - JWT_SIGNER_KEY=${JWT_SIGNER_KEY}
+      - JWT_ISSUER=${JWT_ISSUER}
+      - PAYOS_CLIENT_ID=${PAYOS_CLIENT_ID}
+      - PAYOS_API_KEY=${PAYOS_API_KEY}
+      - PAYOS_CHECKSUM_KEY=${PAYOS_CHECKSUM_KEY}
+      - FRONTEND_BASE_URL=${FRONTEND_BASE_URL}
+    ports:
+      - "8080:8080"
+    container_name: spring-app-container
+    restart: unless-stopped
